@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
+
+import { AboutUs, Chef, FindUs, Footer, Gallery, Header, Intro, Laurels, SpecialMenu } from './container';
+import { Navbar } from './components';
+import { ScrollToTop } from './components';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+   // The back-to-top button is hidden at the beginning
+   const [showButton, setShowButton] = useState(false);
+
+   useEffect(() => {
+     window.addEventListener("scroll", () => {
+       if (window.pageYOffset > 300) {
+         setShowButton(true);
+       } else {
+         setShowButton(false);
+       }
+     });
+   }, []);
+
+   return (
+    <div>
+    <Navbar />
+    <Header />
+    <AboutUs />
+    <SpecialMenu />
+    <Chef />
+    <Intro />
+    <Laurels />
+    <Gallery />
+    <FindUs />
+    <Footer />
+    {showButton && (<ScrollToTop/>)}
+  </div>
+   )
+  
 }
 
 export default App;

@@ -1,0 +1,22 @@
+.app__scroll {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app__scroll--arrow {
+    font-size: 40px;
+    background: transparent;
+    color: var(--color-golden);
+    border: none;
+    cursor: pointer;
+}
+
+.app__scroll--text {
+    font-size: 14px;
+    color: var(--color-golden);
+}
